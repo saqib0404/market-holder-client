@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
-        <div>
+        <header>
             <div className="navbar bg-base-100">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -34,11 +34,12 @@ const Header = () => {
                         <li><Link to='/blog'>Blog</Link></li>
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <button class="btn btn-outline btn-sm">Login</button>
+                <div className="navbar-end flex-col md:flex-row">
+                    <Link to='/login'><button className="btn btn-outline mr-1 mb-2 btn-sm">Login</button></Link>
+                    <Link to='/signup'><button className="btn btn-outline mb-2 btn-sm">Sign up</button></Link>
                 </div>
             </div>
-        </div>
+        </header>
     );
 };
 

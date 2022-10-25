@@ -18,7 +18,7 @@ const Footer = () => {
                     <li><Link to='/blog'>Blog</Link></li>
                 </div>
             </div>
-            <h3 className='text-xl text-center'>Copyright © 2022 Market Holder</h3>
+            <h3 className='text-xl text-center py-1'>Copyright © 2022 Market Holder</h3>
         </footer>
     );
 };
