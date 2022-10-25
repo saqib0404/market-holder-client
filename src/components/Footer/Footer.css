@@ -1,5 +1,6 @@
 footer{
     /* background-color: rgb(224, 205, 192); */
+    border-top: 1px solid rgb(61, 26, 0);
     background-image: linear-gradient(to bottom, rgb(255, 254, 254) ,rgb(228, 187, 161) );
 }
 .footer-links li{
