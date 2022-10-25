@@ -34,6 +34,12 @@ const Blog = () => {
                     <h3 className='text-xl text-center'>Q: How does the private route work?</h3>
                     <p className='p-4 text-slate-800 text-justify'>In the private route component if the user is not authenticated then he/she will be redirected to the login page and the user can only access the authenticated routes If he/she is authenticated (Logged in).Aug 8, 2021</p>
                 </div>
+
+                {/* Blog-4 */}
+                <div className="blog my-5 w-8/12 py-4 px-4 border-2 rounded-lg border-zinc-800">
+                    <h3 className='text-xl text-center'>Q: What is Node? How does Node work?</h3>
+                    <p className='p-4 text-slate-800 text-justify'>Node allows developers to write JavaScript code that runs directly in a computer process itself instead of in a browser. Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on a JavaScript Engine and executes JavaScript code outside a web browser, which was designed to build scalable network applications. Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on a JavaScript Engine and executes JavaScript code outside a web browser, which was designed to build scalable network applications.</p>
+                </div>
             </div>
         </div>
     );
