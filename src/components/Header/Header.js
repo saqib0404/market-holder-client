@@ -1,15 +1,18 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import './Header.css';
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
+import { AuthContext } from '../../contexts/AuthContext';
 
 const Header = () => {
     const [dark, setDark] = useState(false);
+    const { user } = useContext(AuthContext);
     const handleTheme = d => {
         setDark(d)
     }
+
     return (
         <header>
             <div className="navbar bg-base-100">
@@ -52,6 +55,7 @@ const Header = () => {
                 </div>
                 <div className="navbar-end flex-col md:flex-row">
                     <Link to='/login'><button className="btn btn-outline mr-1 mb-2 btn-sm">Login</button></Link>
+                    {user?.email}
                     <Link to='/signup'><button className="btn btn-outline mb-2 btn-sm">Sign up</button></Link>
                 </div>
             </div>
