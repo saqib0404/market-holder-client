@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const Login = () => {
     const { signIn } = useContext(AuthContext);
+    const [error, setError] = useState('');
 
     const handleSignIn = e => {
         e.preventDefault();
@@ -14,10 +15,12 @@ const Login = () => {
         console.log(email, password);
         signIn(email, password)
             .then(result => {
+                setError('');
                 console.log(result.user);
                 form.reset()
             })
             .catch(e => {
+                setError(e.message);
                 console.log(e);
             })
     }
@@ -42,6 +45,7 @@ const Login = () => {
                                 </label>
                                 <input type="text" name="password" placeholder="password" className="input input-bordered" />
                                 <span className='label-text-alt'>Don't have an account? <Link to='/signup' className="label-text-alt link link-hover">Sign up now</Link></span>
+                                <p className='text-red-600'>{error}</p>
                             </div>
                             <div className="form-control mt-6">
                                 <button className="btn btn-primary">Login</button>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useState } from 'react';
 import { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
@@ -6,6 +7,7 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 const SignUp = () => {
     const { createUser, updateUser } = useContext(AuthContext);
+    const [error, setError] = useState('');
 
     const handleCreateUser = e => {
         e.preventDefault();
@@ -19,11 +21,13 @@ const SignUp = () => {
             .then(result => {
                 toast.success('User created Successfully');
                 handleUpdateUser(name, photoURL);
+                setError('');
                 console.log(result.user);
                 form.reset();
             })
             .catch(e => {
                 console.log(e);
+                setError(e.message);
             })
     }
     const handleUpdateUser = (name, photoURL) => {
@@ -52,7 +56,7 @@ const SignUp = () => {
                                     <label className="label">
                                         <span className="label-text">Full Name</span>
                                     </label>
-                                    <input type="text" name="name" placeholder="your full name" className="input input-bordered" />
+                                    <input type="text" name="name" placeholder="your full name" className="input input-bordered" required/>
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -64,14 +68,15 @@ const SignUp = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" name="email" placeholder="email" className="input input-bordered" />
+                                    <input type="text" name="email" placeholder="email" className="input input-bordered" required/>
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" name="password" placeholder="password" className="input input-bordered" />
+                                    <input type="text" name="password" placeholder="password" className="input input-bordered" required/>
                                     <span className='label-text-alt'>Already have an account? <Link to='/login' className="label-text-alt link link-hover">Login</Link></span>
+                                    <p className='text-red-600'>{error}</p>
                                 </div>
                                 <div className="form-control mt-6">
                                     <button className="btn btn-primary">Sign up</button>
