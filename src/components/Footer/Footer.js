@@ -1,6 +1,7 @@
 import React from 'react';
 import './Footer.css'
 import logo from '../../assets/logo.png'
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
     return (
@@ -11,10 +12,10 @@ const Footer = () => {
                     <h2 className='text-xl font-semibold'>Market Holder</h2>
                 </div>
                 <div className='footer-links py-4 text-xl text-center'>
-                    <li>Home</li>
-                    <li>Couses</li>
-                    <li>FAQ</li>
-                    <li>Blog</li>
+                    <li><Link to='/'>Home</Link></li>
+                    <li><Link to='/courses'>Courses</Link></li>
+                    <li><Link to='/faq'>FAQ</Link></li>
+                    <li><Link to='/blog'>Blog</Link></li>
                 </div>
             </div>
             <h3 className='text-xl text-center'>Copyright © 2022 Market Holder</h3>
