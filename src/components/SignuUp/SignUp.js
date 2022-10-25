@@ -1,10 +1,11 @@
 import React from 'react';
 import { useContext } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const SignUp = () => {
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
 
     const handleCreateUser = e => {
         e.preventDefault();
@@ -16,6 +17,8 @@ const SignUp = () => {
         console.log(email, password, name, photoURL);
         createUser(email, password)
             .then(result => {
+                toast.success('User created Successfully');
+                handleUpdateUser(name, photoURL);
                 console.log(result.user);
                 form.reset();
             })
@@ -23,9 +26,20 @@ const SignUp = () => {
                 console.log(e);
             })
     }
+    const handleUpdateUser = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUser(profile)
+            .then(() => { })
+            .catch(e => console.log(e))
+    }
+
 
     return (
         <div>
+            <Toaster></Toaster>
             <div>
                 <div className="hero min-h-screen bg-base-200">
                     <div className="hero-content flex-col ">

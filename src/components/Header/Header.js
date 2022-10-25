@@ -3,7 +3,7 @@ import './Header.css';
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { FaMoon, FaSun } from 'react-icons/fa';
+import { FaMoon, FaSun, FaUserAlt } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const Header = () => {
@@ -34,7 +34,7 @@ const Header = () => {
                             </li>
                             <li><Link to='/faq'>FAQ</Link></li>
                             <li><Link to='/blog'>Blog</Link></li>
-                            <li><Link onClick={handleLogOut}>{user?.uid && "Sign Out"}</Link></li>
+                            {/* <li><Link onClick={handleLogOut}>{user?.uid && "Sign Out"}</Link></li> */}
                             <div onClick={() => handleTheme(!dark)} className='flex items-center ml-4 cursor-pointer'>
                                 {
                                     dark ? <FaSun></FaSun> : <FaMoon></FaMoon>
@@ -53,7 +53,7 @@ const Header = () => {
                         </li>
                         <li><Link to='/faq'>FAQ</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
-                        <li><Link onClick={handleLogOut}>{user?.uid && "Sign Out"}</Link></li>
+                        {/* <li><Link onClick={handleLogOut}>{user?.uid && "Sign Out"}</Link></li> */}
                         <div onClick={() => handleTheme(!dark)} className='flex items-center cursor-pointer'>
                             {
                                 dark ? <FaSun></FaSun> : <FaMoon></FaMoon>
@@ -62,9 +62,18 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end flex-col md:flex-row">
-                    <Link to='/login'><button className="btn btn-outline mr-1 mb-2 btn-sm">Login</button></Link>
-                    {user?.email}
-                    <Link to='/signup'><button className="btn btn-outline mb-2 btn-sm">Sign up</button></Link>
+                    {
+                        user?.uid ?
+                            <>
+                                <button className="btn btn-outline mr-1 mb-2 btn-sm" onClick={handleLogOut}>{user?.uid && "Sign Out"}</button>
+                                {user?.photoURL ? <img className='h-10 mb-2 profile-img' src={user?.photoURL} alt=''></img> : <FaUserAlt className='mb-2'></FaUserAlt>}
+                            </>
+                            :
+                            <>
+                                <Link to='/login'><button className="btn btn-outline mr-1 mb-2 btn-sm">Login</button></Link>
+                                <Link to='/signup'><button className="btn btn-outline mb-2 btn-sm">Sign up</button></Link>
+                            </>
+                    }
                 </div>
             </div>
         </header>
