@@ -34,7 +34,7 @@ const Header = () => {
                             </li>
                             <li><Link to='/faq'>FAQ</Link></li>
                             <li><Link to='/blog'>Blog</Link></li>
-                            <li><Link>{user?.uid && "Sign Out"}</Link></li>
+                            <li><Link onClick={handleLogOut}>{user?.uid && "Sign Out"}</Link></li>
                             <div onClick={() => handleTheme(!dark)} className='flex items-center ml-4 cursor-pointer'>
                                 {
                                     dark ? <FaSun></FaSun> : <FaMoon></FaMoon>
