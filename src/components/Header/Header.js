@@ -2,8 +2,14 @@ import React from 'react';
 import './Header.css';
 import logo from '../../assets/logo.png'
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { FaMoon, FaSun } from 'react-icons/fa';
 
 const Header = () => {
+    const [dark, setDark] = useState(false);
+    const handleTheme = d => {
+        setDark(d)
+    }
     return (
         <header>
             <div className="navbar bg-base-100">
@@ -19,6 +25,11 @@ const Header = () => {
                             </li>
                             <li><Link to='/faq'>FAQ</Link></li>
                             <li><Link to='/blog'>Blog</Link></li>
+                            <div onClick={() => handleTheme(!dark)} className='flex items-center ml-4 cursor-pointer'>
+                                {
+                                    dark ? <FaSun></FaSun> : <FaMoon></FaMoon>
+                                }
+                            </div>
                         </ul>
                     </div>
                     <img className='h-10 w-15' src={logo} alt="" />
@@ -32,6 +43,11 @@ const Header = () => {
                         </li>
                         <li><Link to='/faq'>FAQ</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
+                        <div onClick={() => handleTheme(!dark)} className='flex items-center cursor-pointer'>
+                            {
+                                dark ? <FaSun></FaSun> : <FaMoon></FaMoon>
+                            }
+                        </div>
                     </ul>
                 </div>
                 <div className="navbar-end flex-col md:flex-row">
