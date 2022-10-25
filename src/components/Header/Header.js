@@ -8,7 +8,13 @@ import { AuthContext } from '../../contexts/AuthContext';
 
 const Header = () => {
     const [dark, setDark] = useState(false);
-    const { user } = useContext(AuthContext);
+    const { user, logOut } = useContext(AuthContext);
+
+
+    const handleLogOut = () => {
+        logOut()
+    }
+
     const handleTheme = d => {
         setDark(d)
     }
@@ -28,6 +34,7 @@ const Header = () => {
                             </li>
                             <li><Link to='/faq'>FAQ</Link></li>
                             <li><Link to='/blog'>Blog</Link></li>
+                            <li><Link>{user?.uid && "Sign Out"}</Link></li>
                             <div onClick={() => handleTheme(!dark)} className='flex items-center ml-4 cursor-pointer'>
                                 {
                                     dark ? <FaSun></FaSun> : <FaMoon></FaMoon>
@@ -46,6 +53,7 @@ const Header = () => {
                         </li>
                         <li><Link to='/faq'>FAQ</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
+                        <li><Link onClick={handleLogOut}>{user?.uid && "Sign Out"}</Link></li>
                         <div onClick={() => handleTheme(!dark)} className='flex items-center cursor-pointer'>
                             {
                                 dark ? <FaSun></FaSun> : <FaMoon></FaMoon>
