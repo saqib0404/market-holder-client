@@ -66,7 +66,7 @@ const Header = () => {
                         user?.uid ?
                             <>
                                 <button className="btn btn-outline mr-1 mb-2 btn-sm" onClick={handleLogOut}>{user?.uid && "Sign Out"}</button>
-                                <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                                <div className="tooltip tooltip-left" data-tip={user?.displayName}>
                                     {user?.photoURL ? <img className='h-10 mb-2 profile-img' src={user?.photoURL} alt=''></img> : <FaUserAlt className='mb-2'></FaUserAlt>}
                                 </div>
                             </>

@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, googleSignIn, githubSignIn } = useContext(AuthContext);
     const [error, setError] = useState('');
+
+    const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const handleSignIn = e => {
         e.preventDefault();
@@ -24,6 +29,28 @@ const Login = () => {
                 console.log(e);
             })
     }
+
+    const handleGoogleSignIn = () => {
+        googleSignIn(googleProvider)
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(e => {
+                // setError(e.message);
+                console.log(e);
+            })
+    }
+    const handleGithubSignIn = () => {
+        githubSignIn(githubProvider)
+            .then(result => {
+                console.log(result.user);
+            })
+            .catch(e => {
+                // setError(e.message);
+                console.log(e);
+            })
+    }
+
     return (
         <div>
             <div className="hero min-h-screen bg-base-200">
@@ -48,7 +75,9 @@ const Login = () => {
                                 <p className='text-red-600'>{error}</p>
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn btn-primary mb-4">Login</button>
+                                <button onClick={handleGithubSignIn} className="btn btn-outline mb-2"><FaGithub className='mr-2'></FaGithub> Github</button>
+                                <button onClick={handleGoogleSignIn} className="btn btn-outline btn-info"><FaGoogle className='mr-2'></FaGoogle> Google</button>
                             </div>
                         </form>
                     </div>

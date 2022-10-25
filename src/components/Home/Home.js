@@ -1,6 +1,6 @@
 import React from 'react';
 import './Home.css';
-import man from '../../assets/images/man.png';
+import work from '../../assets/images/work.png';
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,7 @@ const Home = () => {
                 <Link to='/courses'><button className="btn btn-outline my-2">Courses &nbsp; <FaArrowRight></FaArrowRight> </button></Link>
             </div>
             <div className="home-img hidden md:block">
-                <img src={man} alt="" />
+                <img src={work} alt="" />
             </div>
         </div>
     );

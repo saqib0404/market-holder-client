@@ -1,5 +1,5 @@
 import React from 'react';
-import { createBrowserRouter  } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import Home from '../components/Home/Home';
 import Main from '../layout/Main';
 import Blog from '../components/Blog/Blog';
@@ -36,6 +36,10 @@ export const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
         ]
+    },
+    {
+        path: '*',
+        element: <div className='h-screen flex items-center justify-center'><h1 className='text-5xl'>Oops! &nbsp;404| Page not found</h1></div>
     }
 ])
 
