@@ -2,12 +2,13 @@ import React from 'react';
 import { useState } from 'react';
 import { useContext } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const SignUp = () => {
     const { createUser, updateUser } = useContext(AuthContext);
     const [error, setError] = useState('');
+    const navigate = useNavigate();
 
     const handleCreateUser = e => {
         e.preventDefault();
@@ -24,6 +25,7 @@ const SignUp = () => {
                 setError('');
                 console.log(result.user);
                 form.reset();
+                navigate('/')
             })
             .catch(e => {
                 console.log(e);
@@ -56,7 +58,7 @@ const SignUp = () => {
                                     <label className="label">
                                         <span className="label-text">Full Name</span>
                                     </label>
-                                    <input type="text" name="name" placeholder="your full name" className="input input-bordered" required/>
+                                    <input type="text" name="name" placeholder="your full name" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
@@ -68,13 +70,13 @@ const SignUp = () => {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="text" name="email" placeholder="email" className="input input-bordered" required/>
+                                    <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                                 </div>
                                 <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Password</span>
                                     </label>
-                                    <input type="text" name="password" placeholder="password" className="input input-bordered" required/>
+                                    <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                                     <span className='label-text-alt'>Already have an account? <Link to='/login' className="label-text-alt link link-hover">Login</Link></span>
                                     <p className='text-red-600'>{error}</p>
                                 </div>

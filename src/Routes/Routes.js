@@ -7,6 +7,7 @@ import Login from '../components/Login/Login';
 import SignUp from '../components/SignuUp/SignUp';
 import Courses from '../components/Courses/Courses';
 import CourseDetails from '../components/CourseDetails/CourseDetails';
+import PremiumAccess from '../components/PremiumAccess/PremiumAccess';
 
 export const router = createBrowserRouter([
     {
@@ -36,9 +37,14 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/courses/:id',
-                loader: ({params}) => fetch(`http://localhost:5000/all-courses/${params.id}`),
+                loader: ({ params }) => fetch(`http://localhost:5000/all-courses/${params.id}`),
                 element: <CourseDetails></CourseDetails>
             },
+            {
+                path: '/premium/:id',
+                loader: ({ params }) => fetch(`http://localhost:5000/all-courses/${params.id}`),
+                element: <PremiumAccess></PremiumAccess>
+            }
         ]
     },
     {
