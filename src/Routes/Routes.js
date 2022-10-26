@@ -33,17 +33,17 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/courses',
-                loader: () => fetch('http://localhost:5000/all-courses'),
+                loader: () => fetch('https://market-holder-server.vercel.app/all-courses'),
                 element: <Courses></Courses>
             },
             {
                 path: '/courses/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/all-courses/${params.id}`),
+                loader: ({ params }) => fetch(`https://market-holder-server.vercel.app/all-courses/${params.id}`),
                 element: <CourseDetails></CourseDetails>
             },
             {
                 path: '/premium/:id',
-                loader: ({ params }) => fetch(`http://localhost:5000/all-courses/${params.id}`),
+                loader: ({ params }) => fetch(`https://market-holder-server.vercel.app/all-courses/${params.id}`),
                 element: <PrivateRoute><PremiumAccess></PremiumAccess></PrivateRoute>
             }
         ]
