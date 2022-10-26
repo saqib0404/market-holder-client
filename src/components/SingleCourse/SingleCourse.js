@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SingleCourse = ({ course }) => {
     return (
@@ -7,9 +8,9 @@ const SingleCourse = ({ course }) => {
             <figure><img src={course.image} alt="Shoes" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{course.title}</h2>
-                <p>{course.description.slice(0,100)}</p>
+                <p>{course.description.slice(0, 100)}</p>
                 <div className="card-actions justify-end">
-                    <button className="btn btn-primary">Buy Now</button>
+                    <Link to={`/courses/${course.id}`}><button className="btn btn-primary">View Course</button></Link>
                 </div>
             </div>
         </div>

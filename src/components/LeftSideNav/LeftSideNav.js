@@ -6,7 +6,7 @@ const LeftSideNav = ({ courses }) => {
         <div className='text-center'>
             {
                 courses.map(course => {
-                    return <div className='flex flex-col'  key={course.id}><Link className='btn my-2 mx-2 btn-ghost btn-active'>{course.title}</Link></div>
+                    return <div className='flex flex-col'  key={course.id}><Link to={`/courses/${course.id}`} className='btn my-2 mx-2 btn-ghost btn-active'>{course.title}</Link></div>
                 })
             }
         </div>

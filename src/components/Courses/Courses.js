@@ -6,7 +6,7 @@ import SingleCourse from '../SingleCourse/SingleCourse';
 
 const Courses = () => {
     const courses = useLoaderData();
-    console.log(courses);
+    // console.log(courses);
     return (
         <div className='courses-sidebar-container my-10'>
             {/* Left Side Nav */}
