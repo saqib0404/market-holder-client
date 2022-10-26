@@ -17,7 +17,7 @@ const SignUp = () => {
         const password = form.password.value;
         const name = form.name.value;
         const photoURL = form.photoURL.value;;
-        console.log(email, password, name, photoURL);
+        // console.log(email, password, name, photoURL);
         createUser(email, password)
             .then(result => {
                 toast.success('User created Successfully');
