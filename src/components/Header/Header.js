@@ -61,7 +61,7 @@ const Header = () => {
                         </div>
                     </ul>
                 </div>
-                <div className="navbar-end flex-col md:flex-row">
+                <div className="navbar-end flex-col items-end md:flex-row">
                     {
                         user?.uid ?
                             <>

@@ -1,15 +1,19 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
+import Pdf from "react-to-pdf";
 
 const CourseDetails = () => {
     const course = useLoaderData();
     const { description, image, title, duration, classes, instructor, quizes, assignments, id } = course;
+    const ref = React.createRef();
     // console.log(course);
     return (
         <div className='flex flex-col items-center my-8'>
-            <button className='btn btn-sm btn-warning'>Download PDF</button>
+            <Pdf targetRef={ref} filename="code-example.pdf">
+                {({ toPdf }) => <button className='btn btn-sm btn-warning' onClick={toPdf}>Download PDF</button>}
+            </Pdf>
             <h2 className="text-4xl font-semibold mb-2">{title}</h2>
-            <div className="card card-compact w-10/12 md:w-7/12 bg-base-100 shadow-xl ">
+            <div ref={ref} className="card card-compact w-10/12 md:w-7/12 bg-base-100 shadow-xl ">
                 <figure><img src={image} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">Instructor: {instructor}</h2>
