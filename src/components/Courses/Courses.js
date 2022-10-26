@@ -13,7 +13,7 @@ const Courses = () => {
             <LeftSideNav courses={courses} ></LeftSideNav>
 
             {/* All Courses */}
-            <div className="courses mr-2 grid sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-3">
+            <div className="courses mx-2 grid sm:grid-cols-2 md:grid-cols-3 gap-y-4 gap-x-3">
                 {
                     courses.map(course => <SingleCourse
                         key={course.id}
