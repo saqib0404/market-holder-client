@@ -9,6 +9,7 @@ import Courses from '../components/Courses/Courses';
 import CourseDetails from '../components/CourseDetails/CourseDetails';
 import PremiumAccess from '../components/PremiumAccess/PremiumAccess';
 import PrivateRoute from './PrivateRoute';
+import FAQ from '../components/FAQ/FAQ';
 
 export const router = createBrowserRouter([
     {
@@ -18,6 +19,10 @@ export const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>
+            },
+            {
+                path: '/faq',
+                element: <FAQ></FAQ>
             },
             {
                 path: '/blog',
