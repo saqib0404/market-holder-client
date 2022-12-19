@@ -7,7 +7,7 @@ import { FaMoon, FaSun, FaUserAlt } from 'react-icons/fa';
 import { AuthContext } from '../../contexts/AuthContext';
 
 const Header = () => {
-    const [dark, setDark] = useState(false);
+    // const [dark, setDark] = useState(false);
     const { user, logOut } = useContext(AuthContext);
 
 
@@ -15,9 +15,9 @@ const Header = () => {
         logOut()
     }
 
-    const handleTheme = d => {
-        setDark(d)
-    }
+    // const handleTheme = d => {
+    //     setDark(d)
+    // }
 
     return (
         <header>
@@ -35,11 +35,11 @@ const Header = () => {
                             <li><Link to='/faq'>FAQ</Link></li>
                             <li><Link to='/blog'>Blog</Link></li>
                             {/* <li><Link onClick={handleLogOut}>{user?.uid && "Sign Out"}</Link></li> */}
-                            <div onClick={() => handleTheme(!dark)} className='flex items-center ml-4 cursor-pointer'>
+                            {/* <div onClick={() => handleTheme(!dark)} className='flex items-center ml-4 cursor-pointer'>
                                 {
                                     dark ? <FaSun></FaSun> : <FaMoon></FaMoon>
                                 }
-                            </div>
+                            </div> */}
                         </ul>
                     </div>
                     <img className='h-10 w-15' src={logo} alt="" />
@@ -54,11 +54,11 @@ const Header = () => {
                         <li><Link to='/faq'>FAQ</Link></li>
                         <li><Link to='/blog'>Blog</Link></li>
                         {/* <li><Link onClick={handleLogOut}>{user?.uid && "Sign Out"}</Link></li> */}
-                        <div onClick={() => handleTheme(!dark)} className='flex items-center cursor-pointer'>
+                        {/* <div onClick={() => handleTheme(!dark)} className='flex items-center cursor-pointer'>
                             {
                                 dark ? <FaSun></FaSun> : <FaMoon></FaMoon>
                             }
-                        </div>
+                        </div> */}
                     </ul>
                 </div>
                 <div className="navbar-end flex-col items-end md:flex-row">
